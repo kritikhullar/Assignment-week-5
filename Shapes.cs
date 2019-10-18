@@ -64,4 +64,13 @@ namespace Assignments
             Console.WriteLine("area= " + area);
         }
     }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Shapes shape = new Shapes();
+            shape.Input();
+        }
+    }
 }
