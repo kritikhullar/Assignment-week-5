@@ -8,25 +8,25 @@ namespace Bank_Account
 {
     class Customer
     {
-        public int cust_size = 2;
+        public int customer_size = 10;
 
-        int[] cust_id = new int[2];
-        string[] cust_names = new string[2];
-        int[] account_balance = new int[2];
+        int[] customer_id = new int[10];
+        string[] customer_names = new string[10];
+        int[] acc_balance = new int[10];
         bool flag = true;
 
         public void getDetails()
         {
-            for (int i = 0; i < cust_size; i++)
+            for (int i = 0; i < customer_size; i++)
             {
                 Console.WriteLine("Enter Customer Number: ");
-                cust_id[i] = int.Parse(Console.ReadLine());
+                customer_id[i] = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter Customer Name: ");
-                cust_names[i] = Console.ReadLine();
+                customer_names[i] = Console.ReadLine();
             }
-            for (int j = 0; j < cust_size; j++)
+            for (int j = 0; j < customer_size; j++)
             {
-                account_balance[j] = 500;
+                acc_balance[j] = 500;
             }
         }
 
@@ -37,20 +37,20 @@ namespace Bank_Account
             while (flag)
             {
                 Console.WriteLine("Enter Customer Number for Transaction");
-                int ch_cust_id = int.Parse(Console.ReadLine());
-                bool cust_search = false;
+                int ch_customer_id = int.Parse(Console.ReadLine());
+                bool customer_search = false;
 
-                for (int i = 0; i < cust_size; i++)
+                for (int i = 0; i < customer_size; i++)
                 {
-                    if (cust_id[i] == ch_cust_id)
+                    if (customer_id[i] == ch_customer_id)
                     {
                         index = i;
-                        cust_search = true;
+                        customer_search = true;
                         break;
                     }
                 }
 
-                if (cust_search == true)
+                if (customer_search == true)
                 {
                     Console.WriteLine("Customer ID FOUND");
                     Console.WriteLine("Choose One Option:");
@@ -62,7 +62,7 @@ namespace Bank_Account
                     switch (option)
                     {
                         case 1:
-                            if (account_balance[index] <= 500)
+                            if (acc_balance[index] <= 500)
                             {
                                 Console.WriteLine("Cannot withdraw as balance is below 500");
                                 flag = false;
@@ -72,20 +72,20 @@ namespace Bank_Account
                             {
                                 Console.Write("Enter amount to withdraw: ");
                                 int w_amt = int.Parse(Console.ReadLine());
-                                account_balance[index] = account_balance[index] - w_amt;
+                                acc_balance[index] = acc_balance[index] - w_amt;
                                 Console.WriteLine();
-                                Console.WriteLine("Updated Account Balance: " + account_balance[index]);
+                                Console.WriteLine("Updated Account Balance: " + acc_balance[index]);
                             }
                             break;
                         case 2:
                             Console.Write("Enter amount to deposit: ");
                             int d_amt = int.Parse(Console.ReadLine());
-                            account_balance[index] = account_balance[index] + d_amt;
-                            Console.WriteLine("Updated Account Balance: " + account_balance[index]);
+                            acc_balance[index] = acc_balance[index] + d_amt;
+                            Console.WriteLine("Updated Account Balance: " + acc_balance[index]);
 
                             break;
                         case 3:
-                            int balance = account_balance[index];
+                            int balance = acc_balance[index];
                             Console.WriteLine("Account Balance: " + balance);
                             break;
 
